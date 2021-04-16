@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .rect-r {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background-color: red;
+        }
+        
+        .rect-g {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background-color: green;
+        }
+        
+        .rect-b {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background-color: blue;
+        }
+        
+        .result {
+            position: absolute;
+            top: 500px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="rect-r"></div>
+
+    <div class="result">
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+    <script>
+        window.addEventListener("mousemove", function(e) {
+            var pos_x = e.clientX;
+            var pos_y = e.clientY;
+            document.querySelector(".result").innerHTML = "<b>Result :</b>" + pos_x + "," + pos_y;
+            gsap.to(".rect-r", {
+                duration: 0.5,
+                x: pos_x,
+                y: pos_y,
+                rotate: pos_x + pos_y
+            });
+        })
+    </script>
+
+</body>
+
+</html>
